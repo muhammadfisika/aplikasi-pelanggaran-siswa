@@ -150,38 +150,46 @@
 
             <!-- SISWA TERPILIH -->
 
-            <div id="selectedStudent"
-                 class="selected-student hidden">
+           <div id="selectedStudent"
+     class="selected-student hidden">
 
-                <div class="student-icon">
-                    👤
-                </div>
+    <div class="student-photo-wrapper">
 
-                <div>
+        <img
+            id="selectedPhoto"
+            class="student-photo"
+            src=""
+            alt="Foto siswa"
+            onerror="this.src='icon.svg'"
+        >
 
-                    <strong id="selectedName">
-                        -
-                    </strong>
+    </div>
 
-                    <span id="selectedClass">
-                        -
-                    </span>
+    <div class="student-info">
 
-                    <small id="selectedNis">
-                        -
-                    </small>
+        <strong id="selectedName">
+            -
+        </strong>
 
-                </div>
+        <span id="selectedClass">
+            -
+        </span>
 
-                <button
-                    onclick="hapusSiswa()"
-                    class="remove-btn">
+        <small id="selectedNis">
+            -
+        </small>
 
-                    ×
+    </div>
 
-                </button>
+    <button
+        onclick="hapusSiswa()"
+        class="remove-btn">
 
-            </div>
+        ×
+
+    </button>
+
+</div>
 
 
             <!-- FORM PELANGGARAN -->
