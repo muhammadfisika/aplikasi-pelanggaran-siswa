@@ -1762,3 +1762,36 @@ function escapeJS(value) {
     );
 
 }
+
+
+function tampilkanNotifikasi(message) {
+
+    const notification =
+        document.createElement(
+            "div"
+        );
+
+
+    notification.className =
+        "success-notification";
+
+
+    notification.textContent =
+        message;
+
+
+    document.body.appendChild(
+        notification
+    );
+
+
+    setTimeout(
+        function () {
+
+            notification.remove();
+
+        },
+        4000
+    );
+
+}
