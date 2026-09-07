@@ -1795,3 +1795,71 @@ function tampilkanNotifikasi(message) {
     );
 
 }
+
+
+function resetSetelahSimpan() {
+
+    siswaTerpilih = null;
+
+
+    document
+        .getElementById(
+            "selectedStudent"
+        )
+        .classList.add(
+            "hidden"
+        );
+
+
+    document
+        .getElementById(
+            "formPelanggaran"
+        )
+        .classList.add(
+            "hidden"
+        );
+
+
+    document
+        .getElementById(
+            "searchSiswa"
+        )
+        .value = "";
+
+
+    document
+        .getElementById(
+            "hasilSiswa"
+        )
+        .innerHTML = "";
+
+
+    document
+        .getElementById(
+            "tingkat"
+        )
+        .value = "";
+
+
+    document
+        .getElementById(
+            "rincian"
+        )
+        .innerHTML =
+        `<option value="">
+            -- Pilih rincian --
+        </option>`;
+
+
+    document
+        .getElementById(
+            "bobotInfo"
+        )
+        .classList.add(
+            "hidden"
+        );
+
+
+    setTanggalDanWaktu();
+
+}
