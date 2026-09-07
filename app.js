@@ -426,10 +426,11 @@ function cariSiswa() {
 
     if (filtered.length === 0) {
 
-        hasil.innerHTML =
-            `<div class="empty">
-                Siswa tidak ditemukan.
-            </div>`;
+        hasil.innerHTML = `
+            <div class="empty">
+                ❌ Siswa tidak ditemukan.
+            </div>
+        `;
 
         return;
 
@@ -442,22 +443,51 @@ function cariSiswa() {
             .map(
                 function (siswa) {
 
+                    const foto =
+                        siswa.foto ||
+                        "icon.svg";
+
+
                     return `
+
                     <div
                         class="student-result"
                         onclick="pilihSiswa('${escapeJS(siswa.idSiswa)}')">
 
-                        <strong>
-                            ${escapeHTML(siswa.nama)}
-                        </strong>
+                        <img
+                            class="student-result-photo"
+                            src="${escapeHTML(foto)}"
+                            alt="Foto siswa"
+                            onerror="this.src='icon.svg'"
+                        >
 
-                        <span>
-                            NIS: ${escapeHTML(siswa.nis)}
-                            •
-                            ${escapeHTML(siswa.kelas)}
-                        </span>
+                        <div
+                            class="student-result-info">
+
+                            <strong>
+                                ${escapeHTML(
+                                    siswa.nama
+                                )}
+                            </strong>
+
+                            <span>
+                                NIS:
+                                ${escapeHTML(
+                                    siswa.nis
+                                )}
+                            </span>
+
+                            <span>
+                                Kelas:
+                                ${escapeHTML(
+                                    siswa.kelas
+                                )}
+                            </span>
+
+                        </div>
 
                     </div>
+
                     `;
 
                 }
@@ -465,7 +495,6 @@ function cariSiswa() {
             .join("");
 
 }
-
 
 /*
  * ==================================================
