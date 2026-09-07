@@ -806,6 +806,23 @@ async function simpanPelanggaran() {
             .value;
 
 
+    const rincianSelect =
+        document
+            .getElementById("rincian");
+
+
+    const selectedOption =
+        rincianSelect.options[
+            rincianSelect.selectedIndex
+        ];
+
+
+    const rincian =
+        selectedOption
+            ? selectedOption.textContent
+            : "";
+
+
     if (
         !tanggal ||
         !waktu ||
@@ -818,6 +835,73 @@ async function simpanPelanggaran() {
             "Semua data pelanggaran wajib diisi.",
             "error"
         );
+
+        return;
+
+    }
+
+
+    const selectedItem =
+        daftarPelanggaran.find(
+            function (item) {
+
+                return String(
+                    item.idPelanggaran
+                ) ===
+                String(
+                    idPelanggaran
+                );
+
+            }
+        );
+
+
+    const bobot =
+        selectedItem
+            ? selectedItem.bobot
+            : 0;
+
+
+    /*
+     * KONFIRMASI
+     */
+
+    const konfirmasi =
+
+        "KONFIRMASI PELANGGARAN\n\n" +
+
+        "Siswa : " +
+        siswaTerpilih.nama +
+        "\n" +
+
+        "Kelas : " +
+        siswaTerpilih.kelas +
+        "\n\n" +
+
+        "Tanggal : " +
+        tanggal +
+        "\n" +
+
+        "Waktu : " +
+        waktu +
+        "\n\n" +
+
+        "Tingkat : " +
+        tingkat +
+        "\n" +
+
+        "Pelanggaran : " +
+        rincian +
+        "\n" +
+
+        "Bobot : " +
+        bobot +
+        " poin\n\n" +
+
+        "Apakah data sudah benar?";
+
+
+    if (!confirm(konfirmasi)) {
 
         return;
 
@@ -891,18 +975,16 @@ async function simpanPelanggaran() {
         }
 
 
-        showMessage(
-            "saveMessage",
-            "✅ " +
-            result.message +
-            " Bobot: " +
+        tampilkanNotifikasi(
+            "✅ Pelanggaran berhasil disimpan. " +
+            result.data.nama +
+            " mendapatkan " +
             result.data.bobot +
-            " poin.",
-            "success"
+            " poin."
         );
 
 
-        resetFormPelanggaran();
+        resetSetelahSimpan();
 
 
     } catch (error) {
@@ -922,7 +1004,6 @@ async function simpanPelanggaran() {
     }
 
 }
-
 
 /*
  * ==================================================
