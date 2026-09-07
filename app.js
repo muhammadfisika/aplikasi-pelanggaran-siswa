@@ -532,6 +532,7 @@ function pilihSiswa(idSiswa) {
     document
         .getElementById("selectedClass")
         .textContent =
+        "Kelas: " +
         siswaTerpilih.kelas;
 
 
@@ -540,6 +541,26 @@ function pilihSiswa(idSiswa) {
         .textContent =
         "NIS: " +
         siswaTerpilih.nis;
+
+
+    const photo =
+        document.getElementById(
+            "selectedPhoto"
+        );
+
+
+    photo.src =
+        siswaTerpilih.foto ||
+        "icon.svg";
+
+
+    photo.onerror =
+        function () {
+
+            this.src =
+                "icon.svg";
+
+        };
 
 
     document
@@ -566,7 +587,6 @@ function pilihSiswa(idSiswa) {
     filterPelanggaran();
 
 }
-
 
 /*
  * ==================================================
