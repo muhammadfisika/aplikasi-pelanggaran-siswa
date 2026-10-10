@@ -11,7 +11,7 @@
  */
 
 const API_URL =
-    "https://script.google.com/macros/s/AKfycbwlDkanrDOxgjqsCWqeCqmIsYy4eH1pJ58abw28UE5O9BBudBVC0iW91GcJUEf22WTunw/exec";
+    "";
 
 
 /*
